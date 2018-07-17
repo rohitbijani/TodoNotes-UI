@@ -1,0 +1,52 @@
+<div class="notes">
+
+  <div class="" ng-show="!showCard">
+    <md-card class="create-note">
+      <md-card-content ng-click="showCard=true">
+        <input type="text" style="border: none;" ng-model="description" placeholder="Take a note...">
+      </md-card-content>
+    </md-card>
+  </div>
+
+  <div class="" ng-show="showCard">
+    <md-card class="create-note">
+      <md-card-content>
+        <input type="text" style="border: none;" ng-model="title" placeholder="Title">
+        <span style="display :block;"></span>
+        <input type="text" style="border: none;" ng-model="description" placeholder="Take a note...">
+      </md-card-content>
+        <div layout="row" layout-align="space-between center">
+          <noteactions></noteactions>
+          <div>
+            <md-button class="md-icon-button" ng-disabled="true"><i class="material-icons">undo</i></md-button>
+            <md-button class="md-icon-button" ng-disabled="true"><i class="material-icons">redo</i></md-button>
+          </div>
+          <div>
+            <md-button ng-click="showCard=false;createNote()">CLOSE</md-button>
+          </div>
+      </div>
+    </md-card>
+  </div>
+
+  <div class="notes-pinned">
+
+  </div>
+
+  <div class="notes-user">
+    <div class="created" layout="row" layout-wrap layout-align="center">
+
+      <div ng-repeat="x in notes" flex-gt-sm="30" layout-align="center">
+        <md-card class="note-card">
+          <md-card-title style="padding: 10px 16px 16px;">
+          <md-card-title-text>
+            <span class="md-headline"><strong>{{x.title}}</strong></span>
+          </md-card-title-text>
+        </md-card-title>
+          <md-card-content>
+            {{x.description}}
+          </md-card-content>
+        </md-card>
+      </div>
+    </div>
+  </div>
+</div>

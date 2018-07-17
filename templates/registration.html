@@ -1,0 +1,50 @@
+
+<html>
+<head>
+</head>
+<body>
+  <!-- <div class="topbar">
+  <h1>LOGIN</h1>
+</div> -->
+<div class="container">
+  <md-card>
+    <md-card-content>
+
+      <div class="icon">
+        <center>
+          <img src="assets/images/Google-Keep.ico" width="25%">
+        </center>
+      </div>
+      <div class="form-group">
+        <form name="loginForm" method="post" ng-submit="register()">
+          <div class="registerForm-input">
+              <md-input-container>
+                <label for="name">Name</label>
+                <input type="text" name="name" ng-model="name" required></input>
+              </md-input-container>
+              <md-input-container class="flex">
+                <label for="email">Email ID</label>
+                <input type="email"  name="email" ng-model="email" required></input>
+              </md-input-container>
+              <md-input-container class="flex">
+                <label for="password">Password</label>
+                <input type="password" name="password" ng-model="password" required></input>
+              </md-input-container>
+              <md-input-container class="flex">
+                <label for="mobile">Mobile number</label>
+                <input type="text" name="mobileNumber" ng-model="mobileNumber" required></input>
+              </md-input-container>
+          </div>
+
+          <md-card-actions layout="row" layout-align="space-between center">
+            <a class="loginRegister" ng-click="gotoLogin()">Login instead</a>
+            <md-button type="submit" class="form-button" ng-disabled="form.$invalid">Register</md-button>
+          </md-card-actions>
+        </form>
+      </div>
+    </md-card-content>
+  </md-card>
+
+</div>
+</body>
+</html>

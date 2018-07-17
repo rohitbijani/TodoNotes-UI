@@ -1,0 +1,72 @@
+/* Login register css */
+.topbar{
+  background-color: #fb0;
+  border-left: 25px #696969 solid;
+  border-right: 25px #696969 solid;
+  padding: 2px;
+  color: #dcdcdc;
+  text-align: center;
+  font-family: times;
+}
+.container{
+  margin: 30px;
+  color: inherit;
+  width: 350px;
+  height: 450px;
+  /* box-sizing: border-box;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08); */
+  border-radius: 4px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 30px;
+  background-color: inherit;
+}
+/* .card-icon {
+  padding: 10px;
+} */
+md-input-container{
+  width: 100%;
+  margin: 10px 0;
+}
+.loginForm-input{
+  margin-bottom: 50px;
+}
+.registerForm-input {
+  margin-bottom: 20px;
+}
+.form-button{
+  padding: 0px 10px;
+  color: #fff;
+  display: inline-block;
+  background-color: #428bca;
+  border: 1px solid transparent;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+}
+.form-button[disabled]{
+  background-color: #f0b7c4;
+}
+a.loginRegister{
+  font-size: 15px;
+  color: blue;
+}
+
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+    cursor: pointer;
+}
+/* .md-toolbar-tools{
+  background-color: #262626;
+  position: fixed;
+} */
+
+/* table{
+  border-collapse: collapse;
+}
+td, th {
+    border: 5px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+} */

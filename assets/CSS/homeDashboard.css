@@ -1,0 +1,52 @@
+body {
+  background-color: #e8e8e8;
+}
+.navbar {
+  background-color: #FB0;
+}
+#navbar-buttons {
+  margin: 0 6px;
+}
+.profileCard {
+  width: 300px;
+  margin-top: 1px;
+  margin-left: 1000px;
+  position: absolute;
+}
+md-sidenav {
+  background-color: #e8e8e8;
+  width: 280px;
+  margin-top: 64px;
+  position: fixed;
+  font-family: comic;
+}
+#sidenav-menu {
+  background-color: #ff3333;
+  font-style: oblique;
+  font-family: monospace;
+}
+#sidenav-content {
+  margin-top: 50px;
+}
+.sidenav-list {
+  padding-left: 25px;
+  border-bottom: 1px solid #ddd;
+}
+.sidenav-items {
+  padding: 12 0px;
+  font-size: 13px;
+  font-family: sans-serif;
+}
+#sidenav-item-name {
+  padding-left: 30px;
+  /* line-height: 40px; */
+}
+.notes {
+  margin-left: 340px;
+}
+.notes-new {
+  margin: 32 250 16;
+}
+.create-note {
+  width: 600px;
+}

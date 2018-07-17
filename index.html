@@ -1,0 +1,41 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fundoo Notes</title>
+
+  <!-- css stylesheet link -->
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+  <link rel="stylesheet" href="assets/CSS/loginRegister.css">
+  <link rel="stylesheet" href="assets/CSS/homeDashboard.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel='icon' type='image/x-icon' href='assets/images/Google-Keep.ico'/>
+</head>
+
+<!-- define angular app -->
+<body ng-app="myApp">
+  <ui-view></ui-view>
+</body>
+
+<!-- bower component source path -->
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="bower_components/angular-material/angular-material.min.js"></script>
+<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="bower_components/angular-aria/angular-aria.min.js"></script>
+<script src="bower_components/angular-messages/angular-messages.min.js"></script>
+<script src="app.js"></script>
+
+<!-- controllers source path -->
+<script src="controllers/userController.js"></script>
+<script src="controllers/homeController.js"></script>
+<script src="controllers/dashboardController.js"></script>
+
+<!-- directives source path -->
+<script src="directives/navbar.js"></script>
+<script src="directives/sidenav.js"></script>
+<script src="directives/noteActions.js"></script>
+
+<!-- services source path -->
+<script src="services/httpOperations.js"></script>
+<html>
