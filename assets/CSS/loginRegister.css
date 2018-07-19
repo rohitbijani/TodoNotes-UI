@@ -9,7 +9,7 @@
   font-family: times;
 }
 .container{
-  margin: 30px;
+  /* margin: 30px; */
   color: inherit;
   width: 350px;
   height: 450px;
@@ -18,7 +18,7 @@
   border-radius: 4px;
   margin-right: auto;
   margin-left: auto;
-  padding: 30px;
+  padding: 50px;
   background-color: inherit;
 }
 /* .card-icon {

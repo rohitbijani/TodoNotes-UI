@@ -35,7 +35,7 @@
   <div class="notes-user">
     <div class="created" layout="row" layout-wrap layout-align="center">
 
-      <div ng-repeat="x in notes" flex-gt-sm="30" layout-align="center">
+      <div ng-repeat="x in notes" layout-align="center">
         <md-card class="note-card">
           <md-card-title style="padding: 10px 16px 16px;">
           <md-card-title-text>
@@ -45,6 +45,9 @@
           <md-card-content>
             {{x.description}}
           </md-card-content>
+          <div layout="row" layout-align="space-between center">
+            <noteactions></noteactions>
+        </div>
         </md-card>
       </div>
     </div>

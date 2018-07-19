@@ -36,11 +36,10 @@ factory.putRequest = function(url,data){
   });
 }
 
-factory.deleteRequest = function(url,data){
+factory.deleteRequest = function(url){
   return $http({
     method : "DELETE",
     url : url,
-    data : data,
     headers : {
       'Content-Type' : 'application/json',
       'token' : localStorage.getItem("token")

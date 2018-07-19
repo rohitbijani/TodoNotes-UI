@@ -41,12 +41,14 @@ md-sidenav {
   padding-left: 30px;
   /* line-height: 40px; */
 }
-.notes {
+/* .notes {
   margin-left: 340px;
-}
+} */
+
 .notes-new {
   margin: 32 250 16;
 }
 .create-note {
+  margin: 32 340 20px;
   width: 600px;
 }

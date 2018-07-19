@@ -6,8 +6,13 @@ myApp.controller('homeController', function($scope,$mdSidenav,$state){
       $mdSidenav(componentID).toggle();
     };
   }
+
   $scope.isVisible = false;
   $scope.showProfile = function() {
     $scope.isVisible = $scope.isVisible ? false : true;
+  }
+
+  $scope.gotoTrash = function() {
+    $state.go('trash');
   }
 });

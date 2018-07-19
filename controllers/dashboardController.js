@@ -35,6 +35,49 @@ myApp.controller('dashboardController', function($scope,$state,httpOperations){
     });
   }
 
+  $scope.deleteNote =function(noteObject) {
+    var url = "http://192.168.0.55:8080/notes/delete-note/"+noteObject.id;
+
+    httpOperations.postRequest(url)
+    .then(function successCallback(response) {
+      $scope.getNotes();
+    }, function errorCallback(response) {
+      console.log(response.data.message);
+    });
+  }
+
+  $scope.updateNote =function(note) {
+    var url = "http://192.168.0.55:8080/notes/delete-note/"+note.id;
+    $scope.note = {
+      "title" : note.title,
+      "description" : note.description,
+      "color" : note.color,
+      "trash" : note.trash,
+      "pinned": note.pinned,
+      "archived": note.archived
+    };
+
+    httpOperations.putRequest(url,note)
+    .then(function successCallback(response) {
+      $scope.getNotes();
+    }, function errorCallback(response) {
+      console.log(response.data.message);
+    });
+  }
+
+  $scope.trashNote =function(note) {
+    $scope.note = {
+      "title" : note.title,
+      "description" : note.description,
+      "color" : note.color,
+      "trash" : "true",
+      "pinned": note.pinned,
+      "archived": note.archived
+    };
+
+    $scope.updateNote(note);
+  }
+
   $scope.getNotes();
 
 });

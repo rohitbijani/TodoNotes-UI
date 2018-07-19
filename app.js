@@ -31,6 +31,12 @@ myApp.config(function($stateProvider,$urlRouterProvider){
     url: '/dashboard',
     templateUrl: 'templates/dashboard.html',
     controller: 'dashboardController'
+  })
+
+  .state('home.trash', {
+    url: '/trash',
+    templateUrl: 'templates/trash.html',
+    controller: 'homeController'
   });
 
 });
