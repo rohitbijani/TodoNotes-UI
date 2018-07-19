@@ -49,9 +49,9 @@ myApp.controller('userController', function($scope,$state,httpOperations){
     });
   }
 
-  $scope.gotoLogin = function() {
-    $state.go('login');
-  }
+    $scope.gotoLogin = function() {
+      $state.go('login');
+    }
 
   $scope.gotoRegister = function() {
     $state.go('register');

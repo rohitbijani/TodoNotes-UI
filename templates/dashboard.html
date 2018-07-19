@@ -35,8 +35,8 @@
   <div class="notes-user">
     <div class="created" layout="row" layout-wrap layout-align="center">
 
-      <div ng-repeat="x in notes" layout-align="center">
-        <md-card class="note-card">
+      <div ng-repeat="x in notes | filter: {'trash' : 'false'}" layout-align="center">
+        <md-card class="note-card" ng-click="showAlert($event)">
           <md-card-title style="padding: 10px 16px 16px;">
           <md-card-title-text>
             <span class="md-headline"><strong>{{x.title}}</strong></span>
@@ -46,6 +46,7 @@
             {{x.description}}
           </md-card-content>
           <div layout="row" layout-align="space-between center">
+          <!-- ng-mouseover="active = true" ng-mouseleave="active = false" ng-init="active = false" ng-show="active"> -->
             <noteactions></noteactions>
         </div>
         </md-card>

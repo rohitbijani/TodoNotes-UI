@@ -24,19 +24,19 @@ myApp.config(function($stateProvider,$urlRouterProvider){
   .state('home', {
     url: '/home',
     templateUrl: 'templates/home.html',
-    controller: 'homeController'
+    controller: 'noteController'
   })
 
   .state('home.dashboard', {
     url: '/dashboard',
     templateUrl: 'templates/dashboard.html',
-    controller: 'dashboardController'
+    controller: 'noteController'
   })
 
   .state('home.trash', {
     url: '/trash',
     templateUrl: 'templates/trash.html',
-    controller: 'homeController'
+    controller: 'noteController'
   });
 
 });
