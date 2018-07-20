@@ -14,7 +14,7 @@ myApp.controller('userController', function($scope,$state,httpOperations){
       "password" : $scope.password
     };
     console.log($scope.user.email);
-    var url = "http://192.168.0.55:8080/notes/login";
+    var url = "http://192.168.0.70:8080/notes/login";
     var data = $scope.user;
 
     httpOperations.postRequest(url,data)
@@ -24,7 +24,7 @@ myApp.controller('userController', function($scope,$state,httpOperations){
       var token = response.data.message;
       localStorage.setItem("token", token);
 
-      $state.go('home.dashboard');
+      $state.go('home.notes');
     }, function errorCallback(response) {
       console.log(response.data.message);
     });
@@ -37,7 +37,7 @@ myApp.controller('userController', function($scope,$state,httpOperations){
       "password" : $scope.password,
       "mobileNumber" : $scope.mobileNumber
     };
-    var url = "http://192.168.0.55:8080/notes/registration";
+    var url = "http://192.168.0.70:8080/notes/registration";
     var data = $scope.user;
 
     httpOperations.postRequest(url,data)
@@ -49,9 +49,9 @@ myApp.controller('userController', function($scope,$state,httpOperations){
     });
   }
 
-    $scope.gotoLogin = function() {
-      $state.go('login');
-    }
+  $scope.gotoLogin = function() {
+    $state.go('login');
+  }
 
   $scope.gotoRegister = function() {
     $state.go('register');

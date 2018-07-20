@@ -16,12 +16,12 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
     var title=$scope.title;
     var description=$scope.description;
 
-    if(title!=null || description!=null){
+    if((title!=null || description!=null) && (title!='' || description!='') && (title!=undefined || description!=undefined)){
       $scope.note = {
         "title" : title,
         "description" : description
       };
-      var url = "http://192.168.0.55:8080/notes/create-note";
+      var url = "http://192.168.0.70:8080/notes/create-note";
       var data = $scope.note;
 
       httpOperations.postRequest(url,data)
@@ -36,7 +36,7 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
 
   $scope.getNotes = function() {
     $scope.notes=[];
-    var url = "http://192.168.0.55:8080/notes/view-notes";
+    var url = "http://192.168.0.70:8080/notes/view-notes";
 
     httpOperations.getRequest(url)
     .then(function successCallback(response) {
@@ -48,9 +48,9 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
   }
 
   $scope.deleteNote = function(noteObject) {
-    var url = "http://192.168.0.55:8080/notes/delete-note/"+noteObject.id;
+    var url = "http://192.168.0.70:8080/notes/delete-note/"+noteObject.id;
 
-    httpOperations.postRequest(url)
+    httpOperations.deleteRequest(url)
     .then(function successCallback(response) {
       $scope.getNotes();
     }, function errorCallback(response) {
@@ -59,7 +59,7 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
   }
 
   $scope.updateNote = function(noteObject) {
-    var url = "http://192.168.0.55:8080/notes/update-note/"+noteObject.id;
+    var url = "http://192.168.0.70:8080/notes/update-note/"+noteObject.id;
     $scope.note = {
       "title" : noteObject.title,
       "description" : noteObject.description,
@@ -80,14 +80,47 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
 
   $scope.trashNote = function(noteObject) {
     noteObject.trash = "true";
-
     $scope.updateNote(noteObject);
   }
 
   $scope.restoreNote = function(noteObject) {
     noteObject.trash = "false";
-
     $scope.updateNote(noteObject);
+  }
+
+  $scope.pinNote = function(noteObject) {
+    noteObject.pinned = "true";
+    $scope.updateNote(noteObject);
+  }
+
+  $scope.unpinNote = function(noteObject) {
+    noteObject.pinned = "false";
+    $scope.updateNote(noteObject);
+  }
+
+  $scope.archiveNote = function(noteObject) {
+    noteObject.archived = "true";
+    $scope.updateNote(noteObject);
+  }
+
+  $scope.unarchiveNote = function(noteObject) {
+    noteObject.archived = "false";
+    $scope.updateNote(noteObject);
+  }
+
+  // $scope.isArchived = function(noteObject) {
+  //   return noteObject.archived;
+  // }
+  $scope.gotoNotes = function() {
+    $state.go('home.notes');
+  }
+
+  $scope.gotoReminders = function() {
+    $state.go('home.reminders');
+  }
+
+  $scope.gotoArchive = function() {
+    $state.go('home.archive');
   }
 
   $scope.gotoTrash = function() {

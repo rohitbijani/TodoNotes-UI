@@ -3,17 +3,17 @@
     <md-sidenav  class="md-sidenav-left" md-component-id="left" md-disable-backdrop>
       <div class="">
         <ul class="sidenav-list">
-          <li class="sidenav-items">
-            <a class="sidenav">
+          <li class="sidenav-items" ng-click="gotoNotes()">
+            <div class="sidenav">
               <img src="assets/images/note.svg" />
               <span id="sidenav-item-name">Notes</span>
-            </a>
+            </div>
           </li>
-          <li class="sidenav-items" ng-click>
-            <a class="sidenav">
+          <li class="sidenav-items" ng-click="gotoReminders()">
+            <div class="sidenav">
               <i class="material-icons">touch_app</i>
               <span id="sidenav-item-name">Reminders</span>
-            </a>
+            </div>
           </li>
         </ul>
         <ul class="sidenav-list">
@@ -21,18 +21,18 @@
             Labels
           </div>
           <li class="sidenav-items">
-            <a class="sidenav">
+            <div class="sidenav">
               <i class="material-icons">add</i>
               <span id="sidenav-item-name">Create new label</span>
-            </a>
+            </div>
           </li>
         </ul>
         <ul class="sidenav-list">
-          <li class="sidenav-items">
-            <a class="sidenav">
+          <li class="sidenav-items" ng-click="gotoArchive()">
+            <div class="sidenav">
               <i class="material-icons">archive</i>
               <span id="sidenav-item-name">Archive</span>
-            </a>
+            </div>
           </li>
           <li class="sidenav-items" ng-click="gotoTrash()">
             <div class="sidenav">
@@ -41,7 +41,6 @@
           </div>
         </li>
       </ul>
-
     </div>
 
   </md-sidenav>

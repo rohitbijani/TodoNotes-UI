@@ -1,13 +1,31 @@
 <div>
   <md-button class="md-icon-button">
+    <md-tooltip style="margin-top: -1px;">Remind me</md-tooltip>
     <i class="material-icons">touch_app</i>
   </md-button>
-  <md-button class="md-icon-button"><i class="material-icons">person_add</i></md-button>
-  <md-button class="md-icon-button"><i class="material-icons">color_lens</i></md-button>
-  <md-button class="md-icon-button"><i class="material-icons">image</i></md-button>
-  <md-button class="md-icon-button"><i class="material-icons">archive</i></md-button>
+  <md-button class="md-icon-button">
+    <md-tooltip style="margin-top: -1px;">Collaborator</md-tooltip>
+    <i class="material-icons">person_add</i>
+  </md-button>
+  <md-button class="md-icon-button">
+    <md-tooltip style="margin-top: -1px;">Change color</md-tooltip>
+    <i class="material-icons">color_lens</i>
+  </md-button>
+  <md-button class="md-icon-button">
+    <md-tooltip style="margin-top: -1px;">Add image</md-tooltip>
+    <i class="material-icons">image</i>
+  </md-button>
+  <md-button class="md-icon-button" ng-click="archiveNote(x)" ng-hide="x.archived">
+    <md-tooltip style="margin-top: -1px;">Archive</md-tooltip>
+    <i class="material-icons">archive</i>
+  </md-button>
+  <md-button class="md-icon-button" ng-click="" ng-show="x.archived">
+    <md-tooltip style="margin-top: -1px;">Unarchive</md-tooltip>
+    <i class="material-icons">unarchive</i>
+  </md-button>
   <md-menu>
     <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)" >
+      <md-tooltip style="margin-top: -1px;">More</md-tooltip>
       <i class="material-icons">more_vert</i>
     </md-button>
     <md-menu-content>

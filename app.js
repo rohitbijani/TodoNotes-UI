@@ -27,9 +27,21 @@ myApp.config(function($stateProvider,$urlRouterProvider){
     controller: 'noteController'
   })
 
-  .state('home.dashboard', {
-    url: '/dashboard',
-    templateUrl: 'templates/dashboard.html',
+  .state('home.notes', {
+    url: '/notes',
+    templateUrl: 'templates/notes.html',
+    controller: 'noteController'
+  })
+
+  .state('home.reminders', {
+    url: '/reminders',
+    templateUrl: 'templates/reminders.html',
+    controller: 'noteController'
+  })
+
+  .state('home.archive', {
+    url: '/archive',
+    templateUrl: 'templates/archive.html',
     controller: 'noteController'
   })
 

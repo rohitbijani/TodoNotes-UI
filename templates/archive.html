@@ -1,7 +1,7 @@
-<div class="trash">
+<div class="archive">
   <div class="created" layout="row" layout-wrap layout-align="center">
 
-    <div ng-repeat="x in notes | filter: {'trash' : 'true'}" layout-align="center">
+    <div ng-repeat="x in notes | filter: {'archive' : 'true'}" layout-align="center">
       <md-card class="note-card">
         <md-card-title style="padding: 10px 16px 16px;">
         <md-card-title-text>
@@ -29,4 +29,5 @@
       </md-card>
     </div>
   </div>
+
 </div>
