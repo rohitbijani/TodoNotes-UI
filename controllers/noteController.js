@@ -1,4 +1,10 @@
 myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperations,$mdDialog){
+
+  // $scope.colors = [
+  //   [white, #ff8a80, #ffd180, #ffff8d],
+  //   [#ccff90, #a7ffeb, #80d8ff, #82b1ff],
+  //   [#b388ff, #f8bbd0, #d7ccc8, #cfd8dc]
+  // ];
   $scope.toggleLeft=buildToggler('left');
 
   function buildToggler(componentID) {
@@ -59,8 +65,9 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
   }
 
   $scope.updateNote = function(noteObject) {
-    var url = "http://192.168.0.70:8080/notes/update-note/"+noteObject.id;
+    var url = "http://192.168.0.70:8080/notes/update-note";
     $scope.note = {
+      "id" : noteObject.id,
       "title" : noteObject.title,
       "description" : noteObject.description,
       "color" : noteObject.color,
