@@ -1,12 +1,16 @@
 <md-dialog style="border-radius: 2px;">
-  <md-card class="note-card" style="margin: 0px">
+  <md-card class="dialog-card" style="margin: 0px; background-color: {{noteUpdate.color}}">
     <md-card-title style="padding: 10px 16px 16px;">
       <md-card-title-text>
-        <span class="md-headline"><strong>{{x.title}}</strong></span>
+        <div class="md-headline" contenteditable ng-model="noteUpdate.title">
+          <strong>{{noteUpdate.title}}</strong>
+        </div>
       </md-card-title-text>
     </md-card-title>
     <md-card-content>
-      {{x.description}}
+      <div class="note-input" contenteditable ng-model="noteUpdate.description">
+        {{noteUpdate.description}}
+      </div>
     </md-card-content>
     <div layout="row" layout-align="space-between center">
       <noteactions></noteactions>
@@ -15,7 +19,7 @@
         <md-button class="md-icon-button" ng-disabled="true"><i class="material-icons">redo</i></md-button>
       </div>
       <div>
-        <md-button ng-click="cancel()">CLOSE</md-button>
+        <md-button ng-click="closeDialog()">CLOSE</md-button>
       </div>
     </div>
   </md-card>

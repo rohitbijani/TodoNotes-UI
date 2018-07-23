@@ -1,22 +1,21 @@
 <div class="archive">
   <div class="created" layout="row" layout-wrap layout-align="center">
 
-    <div ng-repeat="x in notes | filter: {archived : 'true', pinned: 'false'}" layout-align="center">
-      <md-card class="note-card">
-        <md-card-title style="padding: 10px 16px 16px;">
-        <md-card-title-text>
-          <span class="md-headline"><strong>{{x.title}}</strong></span>
-        </md-card-title-text>
-      </md-card-title>
-        <md-card-content>
-          {{x.description}}
-        </md-card-content>
-        <div class="note-card-actions">
-          <!-- ng-mouseover="active = true" ng-mouseleave="active = false" ng-init="active = false" ng-show="active"> -->
-          <noteactions></noteactions>
-        </div>
-      </md-card>
+    <md-card class="note-card" ng-repeat="x in notes | filter: {archived : 'true', pinned: 'false'}"
+    layout-align="center" style="background-color: {{x.color}};">
+    <md-card-title style="padding: 10px 16px 16px;">
+      <md-card-title-text>
+        <span class="md-headline"><strong>{{x.title}}</strong></span>
+      </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+      {{x.description}}
+    </md-card-content>
+    <div class="note-card-actions">
+      <!-- ng-mouseover="active = true" ng-mouseleave="active = false" ng-init="active = false" ng-show="active"> -->
+      <noteactions></noteactions>
     </div>
-  </div>
+  </md-card>
+</div>
 
 </div>

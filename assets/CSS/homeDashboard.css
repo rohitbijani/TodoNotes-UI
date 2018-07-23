@@ -1,14 +1,9 @@
-.notes {
+.notes, .reminders {
   background-color: #e8e8e8;
   padding-top: 65px;
   height: 100%;
 }
-.trash {
-  background-color: #e8e8e8;
-  padding-top: 80px;
-  height: 100%;
-}
-.archive {
+.trash, .archive {
   background-color: #e8e8e8;
   padding-top: 80px;
   height: 100%;
@@ -23,7 +18,7 @@
 }
 .profileCard {
   width: 300px;
-  margin-top: 1px;
+  margin-top: 65px;
   margin-left: 1000px;
   position: absolute;
 }
@@ -50,6 +45,17 @@ md-sidenav {
 .sidenav .material-icons {
   color: #6a6a6a;
 }
+.note-input {
+  border: none;
+}
+.note-input[placeholder]:empty::before {
+    content: attr(placeholder);
+    color: #555;
+}
+
+[placeholder]:empty:focus::before {
+    content: "";
+}
 .note-card {
   width: 240px;
 }
@@ -68,4 +74,11 @@ md-sidenav {
   padding: 0 0px;
   width: 36px;
   height: 36px;
+}
+#color-item {
+  border: 1px solid;
+  border-radius: 50%;
+  border-color: #00000029;
+  width: 27px;
+  height: 27px;
 }

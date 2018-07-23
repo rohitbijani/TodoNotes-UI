@@ -1,19 +1,19 @@
-<div class="notes">
+<div class="notes" id="dashboard">
 
   <div class="" ng-show="!showCard">
     <md-card class="createNote-card">
       <md-card-content ng-click="showCard=true">
-        <input type="text" style="border: none;" ng-model="description" placeholder="Take a note...">
+        <div class="note-input" placeholder="Take a note..." contenteditable="true" ng-model="description"></div>
       </md-card-content>
     </md-card>
   </div>
 
   <div class="" ng-show="showCard">
-    <md-card class="createNote-card">
+    <md-card class="createNote-card" style="background-color: {{bgcolor}}">
       <md-card-content>
-        <input type="text" style="border: none;" ng-model="title" placeholder="Title">
+        <div class="note-input" placeholder="Title" contenteditable="true" ng-model="title"></div>
         <span style="display :block;"></span>
-        <input type="text" style="border: none;" ng-model="description" placeholder="Take a note...">
+        <div class="note-input" placeholder="Take a note..." contenteditable="true" ng-model="description"></div>
       </md-card-content>
       <div layout="row" layout-align="space-between center">
         <noteactions></noteactions>
@@ -28,50 +28,50 @@
     </md-card>
   </div>
 
-  <div class="notes-pinned" layout="row" layout-wrap style="margin: 0 255px;">
-
-    <md-card class="note-card" ng-repeat="x in notes | filter: {'pinned' : 'true', archived: 'false'}" ng-click="showAlert($event)">
-      <md-card-title style="padding: 10px 16px 16px;">
-        <md-card-title-text>
-          <span class="md-headline"><strong>{{x.title}}</strong></span>
-        </md-card-title-text>
-        <div style="margin-right: -5px;" ng-click="unpinNote(x)">
-          <md-tooltip style="margin-top: -1px;">Unpin note</md-tooltip>
-          <img src="assets/images/pinned.svg">
-        </div>
-      </md-card-title>
-      <md-card-content>
-        {{x.description}}
-      </md-card-content>
-      <div class="note-card-actions">
-        <!-- ng-mouseover="active = true" ng-mouseleave="active = false" ng-init="active = false" ng-show="active"> -->
-        <noteactions></noteactions>
+  <div class="notes-pinned" id="dashboard-notes" layout="row" layout-wrap style="margin-left: 120px;">
+    <md-card class="note-card" ng-repeat="x in notes | filter: {'pinned' : 'true', archived: 'false'}"
+    style="background-color: {{x.color}};" ng-click="showAlert($event,x)">
+    <md-card-title style="padding: 10px 16px 16px;">
+      <md-card-title-text>
+        <span class="md-headline"><strong>{{x.title}}</strong></span>
+      </md-card-title-text>
+      <div style="margin-right: -5px;" ng-click="unpinNote(x)">
+        <md-tooltip style="margin-top: -1px;">Unpin note</md-tooltip>
+        <img src="assets/images/pinned.svg">
       </div>
-    </md-card>
+    </md-card-title>
+    <md-card-content>
+      {{x.description}}
+    </md-card-content>
+    <div class="note-card-actions">
+      <!-- ng-mouseover="active = true" ng-mouseleave="active = false" ng-init="active = false" ng-show="active"> -->
+      <noteactions></noteactions>
+    </div>
+  </md-card>
+</div>
 
+<div class="notes-others" id="dashboard-notes" layout="row" layout-wrap style="margin-left: 120px;">
+
+  <md-card class="note-card" ng-repeat="x in notes | filter: {trash: 'false', pinned: 'false', archived: 'false'}"
+  style="background-color: {{x.color}};" ng-click="showAlert($event,x)">
+  <md-card-title style="padding: 10px 16px 16px;">
+    <md-card-title-text>
+      <span class="md-headline"><strong>{{x.title}}</strong></span>
+    </md-card-title-text>
+    <div style="margin-right: -5px;" ng-click="pinNote(x)">
+      <md-tooltip style="margin-top: -1px;">Pin note</md-tooltip>
+      <img src="assets/images/pin.svg">
+    </div>
+  </md-card-title>
+  <md-card-content>
+    {{x.description}}
+  </md-card-content>
+  <div class="note-card-actions">
+    <!-- ng-mouseover="active = true" ng-mouseleave="active = false" ng-init="active = false" ng-show="active"> -->
+    <noteactions></noteactions>
   </div>
+</md-card>
 
-  <div class="notes-others" layout="row" layout-wrap style="margin: 0 255px;">
-
-    <md-card class="note-card" ng-repeat="x in notes | filter: {trash: 'false', pinned: 'false', archived: 'false'}" ng-click="showAlert($event)">
-      <md-card-title style="padding: 10px 16px 16px;">
-        <md-card-title-text>
-          <span class="md-headline"><strong>{{x.title}}</strong></span>
-        </md-card-title-text>
-        <div style="margin-right: -5px;" ng-click="pinNote(x)">
-          <md-tooltip style="margin-top: -1px;">Pin note</md-tooltip>
-          <img src="assets/images/pin.svg">
-        </div>
-      </md-card-title>
-      <md-card-content>
-        {{x.description}}
-      </md-card-content>
-      <div class="note-card-actions">
-        <!-- ng-mouseover="active = true" ng-mouseleave="active = false" ng-init="active = false" ng-show="active"> -->
-        <noteactions></noteactions>
-      </div>
-    </md-card>
-
-  </div>
+</div>
 
 </div>

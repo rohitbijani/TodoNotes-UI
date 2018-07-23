@@ -1,21 +1,37 @@
 myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperations,$mdDialog){
 
-  // $scope.colors = [
-  //   [white, #ff8a80, #ffd180, #ffff8d],
-  //   [#ccff90, #a7ffeb, #80d8ff, #82b1ff],
-  //   [#b388ff, #f8bbd0, #d7ccc8, #cfd8dc]
-  // ];
+  $scope.colors = [
+    ["white", "#ff8a80", "#ffd180", "#ffff8d"],
+    ["#ccff90", "#a7ffeb", "#80d8ff", "#82b1ff"],
+    ["#b388ff", "#f8bbd0", "#d7ccc8", "#cfd8dc"]
+  ];
+
   $scope.toggleLeft=buildToggler('left');
 
   function buildToggler(componentID) {
     return function() {
       $mdSidenav(componentID).toggle();
+      var isOpen = $mdSidenav(componentID).isOpen();
+      if(isOpen) {
+        document.getElementById('dashboard').style.marginLeft = '280px';
+        // document.getElementsByClassName('notes-others').style.marginLeft = '120px';
+        // document.getElementsByClassName('notes-others').style.marginRight = '120px';
+
+      }
+      else {
+        document.getElementById('dashboard').style.marginLeft = '0px';
+      }
     };
   }
 
   $scope.isVisible = false;
   $scope.showProfile = function() {
     $scope.isVisible = $scope.isVisible ? false : true;
+  }
+
+  $scope.isGrid = true;
+  $scope.listGrid = function () {
+    $scope.isGrid = $scope.isGrid ? false : true;
   }
 
   $scope.createNote = function() {
@@ -85,6 +101,24 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
     });
   }
 
+  $scope.signout = function () {
+    localStorage.removeItem('token');
+    $state.go('login');
+  }
+
+  $scope.reminders = function () {
+
+  }
+
+  $scope.changeColor = function (color, noteObject) {
+    $scope.bgcolor = color;
+
+    if (noteObject!=undefined) {
+      noteObject.color = color;
+      $scope.updateNote(noteObject);
+    }
+  }
+
   $scope.trashNote = function(noteObject) {
     noteObject.trash = "true";
     $scope.updateNote(noteObject);
@@ -115,9 +149,12 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
     $scope.updateNote(noteObject);
   }
 
-  // $scope.isArchived = function(noteObject) {
-  //   return noteObject.archived;
-  // }
+  $scope.listView = function() {
+    for (i = 0; i < elements.length; i++) {
+      elements[i].style.width = "100%";
+    }
+  }
+
   $scope.gotoNotes = function() {
     $state.go('home.notes');
   }
@@ -148,6 +185,10 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
   function DialogController($scope, $mdDialog, noteUpdate) {
     $scope.noteUpdate = noteUpdate;
     $scope.closeDialog = function() {
+      // $scope.noteUpdate.title = $scope.noteUpdate.title;
+      // $scope.noteUpdate.description =$scope.noteUpdate.description;
+      console.log($scope.noteUpdate.title);
+      $scope.updateNote(noteUpdate);
       $mdDialog.hide();
     }
   }

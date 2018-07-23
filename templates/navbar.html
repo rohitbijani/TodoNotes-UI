@@ -1,31 +1,47 @@
 <div layout="column">
-    <md-toolbar class="navbar" style="background-color: #FB0">
-      <div class="md-toolbar-tools">
+  <md-toolbar class="navbar" style="background-color: #FB0">
+    <div class="md-toolbar-tools">
       <md-button class="md-icon-button" id="navbar-buttons" ng-click="toggleLeft()"><i class="material-icons">menu</i>
       </md-button>
+
       <h2 style="color: black; padding-left: 16px">Notes</h2>
+
       <div class="searchbar" flex>
         <!-- <md-button class="md-icon-button" id="navbar-buttons"><i class="material-icons">search</i></md-button> -->
         <md-input-container>
 
         </md-input-container>
       </div>
+
       <md-button class="md-icon-button" id="navbar-buttons">
-        <i class="material-icons">refresh</i></md-button>
-      <md-button class="md-icon-button" id="navbar-buttons">
-        <i class="material-icons">view_agenda</i></md-button>
+        <md-tooltip style="margin-top: -1px;">Refresh</md-tooltip>
+        <i class="material-icons">refresh</i>
+      </md-button>
+
+      <md-button class="md-icon-button" id="navbar-buttons" ng-click="listView()" ng-show="isGrid">
+        <md-tooltip style="margin-top: -1px;">List view</md-tooltip>
+        <i class="material-icons">view_agenda</i>
+      </md-button>
+
+      <md-button class="md-icon-button" id="navbar-buttons" ng-click="listGrid()" ng-hide="isGrid">
+        <md-tooltip style="margin-top: -1px;">Grid view</md-tooltip>
+        <i class="material-icons">view_quilt</i>
+      </md-button>
+
       <md-button class="md-icon-button" id="navbar-buttons" ng-click="showProfile()">
-        <i class="material-icons">account_circle</i></md-button>
+        <i class="material-icons">account_circle</i>
+      </md-button>
     </div>
-    </md-toolbar>
-    <div class="profile" ng-show="isVisible">
-      <md-card class="profileCard">
-        <md-card-content>
-          Username
-        </md-card-content>
-        <div style="background-color: #e8e8e8">
-          <md-button style="border: 1px solid #c6c6c6; font-size: 13px;" ng-click="">Sign out</md-button>
-        </div>
-      </md-card>
-    </div>
+  </md-toolbar>
+
+  <div class="profile" ng-show="isVisible">
+    <md-card class="profileCard">
+      <md-card-content>
+        Username
+      </md-card-content>
+      <div style="background-color: #e8e8e8">
+        <md-button style="border: 1px solid #c6c6c6; font-size: 13px;" ng-click="signout()">Sign out</md-button>
+      </div>
+    </md-card>
+  </div>
 </div>

@@ -1,32 +1,31 @@
 <div class="trash">
   <div class="created" layout="row" layout-wrap style="margin: 0 260px;">
 
-    <div ng-repeat="x in notes | filter: {'trash' : 'true'}" layout-align="center">
-      <md-card class="note-card">
-        <md-card-title style="padding: 10px 16px 16px;">
-        <md-card-title-text>
-          <span class="md-headline"><strong>{{x.title}}</strong></span>
-        </md-card-title-text>
-      </md-card-title>
-        <md-card-content>
-          {{x.description}}
-        </md-card-content>
-        <div layout="row" layout-align="space-between center">
-          <md-menu>
-            <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)" >
-              <i class="material-icons">more_vert</i>
-            </md-button>
-            <md-menu-content>
-              <md-menu-item>
-                <md-button style="font-size: 14px;" ng-click="deleteNote(x)">Delete forever</md-button>
-              </md-menu-item>
-              <md-menu-item>
-                <md-button style="font-size: 14px;" ng-click="restoreNote(x)">Restore</md-button>
-              </md-menu-item>
-            </md-menu-content>
-        </md-menu>
-      </div>
-      </md-card>
+    <md-card class="note-card" ng-repeat="x in notes | filter: {'trash' : 'true'}" layout-align="center"
+    style="background-color: {{x.color}};">
+    <md-card-title style="padding: 10px 16px 16px;">
+      <md-card-title-text>
+        <span class="md-headline"><strong>{{x.title}}</strong></span>
+      </md-card-title-text>
+    </md-card-title>
+    <md-card-content>
+      {{x.description}}
+    </md-card-content>
+    <div layout="row" layout-align="space-between center">
+      <md-menu>
+        <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)" >
+          <i class="material-icons">more_vert</i>
+        </md-button>
+        <md-menu-content>
+          <md-menu-item>
+            <md-button style="font-size: 14px;" ng-click="deleteNote(x)">Delete forever</md-button>
+          </md-menu-item>
+          <md-menu-item>
+            <md-button style="font-size: 14px;" ng-click="restoreNote(x)">Restore</md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
     </div>
-  </div>
+  </md-card>
+</div>
 </div>

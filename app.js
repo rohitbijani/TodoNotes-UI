@@ -1,4 +1,4 @@
-var myApp=angular.module('myApp',['ui.router','ngMaterial']);
+var myApp=angular.module('myApp',['ui.router','ngMaterial','content-editable']);
 
 myApp.config(function($stateProvider,$urlRouterProvider){
   $urlRouterProvider.otherwise('/login')

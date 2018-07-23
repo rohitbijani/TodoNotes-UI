@@ -16,6 +16,7 @@
   ],
   "dependencies": {
     "angular-material": "^1.1.10",
-    "angular-ui-router": "^1.0.18"
+    "angular-ui-router": "^1.0.18",
+    "ng-content-editable": "^0.0.5"
   }
 }

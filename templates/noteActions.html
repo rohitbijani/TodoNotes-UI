@@ -1,37 +1,62 @@
 <div>
-  <md-button class="md-icon-button">
-    <md-tooltip style="margin-top: -1px;">Remind me</md-tooltip>
-    <i class="material-icons">touch_app</i>
-  </md-button>
-  <md-button class="md-icon-button">
+  <md-menu>
+    <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)">
+      <md-tooltip style="margin-top: -1px;">Remind me</md-tooltip>
+      <i class="material-icons">touch_app</i>
+    </md-button>
+    <md-menu-content>
+      <md-menu-item>
+        <md-button style="font-size: 14px;" ng-click="trashNote(x)">Later today</md-button>
+      </md-menu-item>
+      <md-menu-item>
+        <md-button style="font-size: 14px;" ng-click="doSomething()">Tomorrow</md-button>
+      </md-menu-item>
+      <md-menu-item>
+        <md-button style="font-size: 14px;" ng-click="doSomething()">Next week</md-button>
+      </md-menu-item>
+      <md-menu-item>
+        <md-button style="font-size: 14px;" ng-click="doSomething()">Pick date & time</md-button>
+      </md-menu-item>
+    </md-menu-content>
+  </md-menu>
+
+  <md-button class="md-icon-button" ng-click="">
     <md-tooltip style="margin-top: -1px;">Collaborator</md-tooltip>
     <i class="material-icons">person_add</i>
   </md-button>
+
   <md-menu>
     <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)">
       <md-tooltip style="margin-top: -1px;">Change color</md-tooltip>
       <i class="material-icons">color_lens</i>
     </md-button>
-    <md-menu-content>
-      <!-- <md-menu-item> -->
-        <div class="color-palete" layout="column">
-          <!-- <div><img src="assets/images/red.svg" /></div> -->
+    <md-menu-content style="padding: 5px;">
+      <div class="color-palete" layout="row">
+        <div ng-repeat="rows in colors">
+          <div ng-repeat="color in rows" style="margin: 4px;">
+            <div id="color-item" style="background-color: {{color}}" ng-click="changeColor(color,x)">
+            </div>
+          </div>
         </div>
-      <!-- </md-menu-item> -->
+      </div>
     </md-menu-content>
   </md-menu>
+
   <md-button class="md-icon-button">
     <md-tooltip style="margin-top: -1px;">Add image</md-tooltip>
     <i class="material-icons">image</i>
   </md-button>
+
   <md-button class="md-icon-button" ng-click="archiveNote(x)" ng-hide="x.archived">
     <md-tooltip style="margin-top: -1px;">Archive</md-tooltip>
     <i class="material-icons">archive</i>
   </md-button>
+
   <md-button class="md-icon-button" ng-click="unarchiveNote(x)" ng-show="x.archived">
     <md-tooltip style="margin-top: -1px;">Unarchive</md-tooltip>
     <i class="material-icons">unarchive</i>
   </md-button>
+
   <md-menu>
     <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)">
       <md-tooltip style="margin-top: -1px;">More</md-tooltip>
@@ -41,5 +66,5 @@
       <md-menu-item><md-button style="font-size: 14px;" ng-click="trashNote(x)">Delete note</md-button></md-menu-item>
       <md-menu-item><md-button style="font-size: 14px;" ng-click="doSomething()">Add label</md-button></md-menu-item>
     </md-menu-content>
-</md-menu>
+  </md-menu>
 </div>
