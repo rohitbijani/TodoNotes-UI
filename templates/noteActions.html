@@ -15,7 +15,22 @@
         <md-button style="font-size: 14px;" ng-click="doSomething()">Next week</md-button>
       </md-menu-item>
       <md-menu-item>
-        <md-button style="font-size: 14px;" ng-click="doSomething()">Pick date & time</md-button>
+        <md-menu>
+          <div style="font-size: 14px;" ng-click="$mdMenu.open($event)">Pick date & time</div>
+          <md-menu-content style="padding: 5px; width: 220;">
+            <!-- <md-menu-item>Pick date & time</md-menu-item> -->
+            <md-menu-item>
+              <md-datepicker style="padding: 0px;" ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+            </md-menu-item>
+            <md-menu-item>
+              <center><input type="time" id="timeInput" name="time" placeholder="HH:mm:ss" style="border: none;" ng-model="timeReminder">
+              </center>
+            </md-menu-item>
+            <div layout="row" layout-align="end">
+              <md-button ng-click="reminders()">save</md-button>
+            </div>
+          </md-menu-content>
+      </md-menu>
       </md-menu-item>
     </md-menu-content>
   </md-menu>

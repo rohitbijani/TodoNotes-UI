@@ -4,44 +4,35 @@
       <div class="">
         <ul class="sidenav-list">
           <li class="sidenav-items" ng-click="gotoNotes()">
-            <div class="sidenav">
-              <img src="assets/images/note.svg" />
-              <span id="sidenav-item-name">Notes</span>
-            </div>
+            <md-button class="md-icon-button"><img src="assets/images/note.svg" /></md-button>
+            <span id="sidenav-item-name">Notes</span>
           </li>
           <li class="sidenav-items" ng-click="gotoReminders()">
-            <div class="sidenav">
-              <i class="material-icons">touch_app</i>
-              <span id="sidenav-item-name">Reminders</span>
-            </div>
+            <md-button class="md-icon-button"><i class="material-icons">touch_app</i></md-button>
+            <span id="sidenav-item-name">Reminders</span>
           </li>
         </ul>
         <ul class="sidenav-list">
-          <div class="sidenav-items">
+          <div class="sidenav-items" style="padding-left: 15px;" layout="row" layout-align="space-between center">
             Labels
+            <md-button>edit</md-button>
           </div>
           <li class="sidenav-items">
-            <div class="sidenav">
-              <i class="material-icons">add</i>
-              <span id="sidenav-item-name">Create new label</span>
-            </div>
+            <md-button class="md-icon-button"><i class="material-icons">add</i></md-button>
+            <span id="sidenav-item-name">Create new label</span>
           </li>
         </ul>
         <ul class="sidenav-list">
           <li class="sidenav-items" ng-click="gotoArchive()">
-            <div class="sidenav">
-              <i class="material-icons">archive</i>
-              <span id="sidenav-item-name">Archive</span>
-            </div>
+            <md-button class="md-icon-button"><i class="material-icons">archive</i></md-button>
+            <span id="sidenav-item-name">Archive</span>
           </li>
           <li class="sidenav-items" ng-click="gotoTrash()">
-            <div class="sidenav">
-            <i class="material-icons">delete</i>
+            <md-button class="md-icon-button"><i class="material-icons">delete</i></md-button>
             <span id="sidenav-item-name">Trash</span>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </md-sidenav>
-</section>
+          </li>
+        </ul>
+      </div>
+    </md-sidenav>
+  </section>
 </div>

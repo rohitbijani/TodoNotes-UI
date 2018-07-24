@@ -1,7 +1,7 @@
 .notes, .reminders {
   background-color: #e8e8e8;
-  padding-top: 65px;
-  height: 100%;
+  padding: 65 0 20px;
+  /* height: 100%; */
 }
 .trash, .archive {
   background-color: #e8e8e8;
@@ -30,19 +30,19 @@ md-sidenav {
   font-family: comic;
 }
 .sidenav-list {
-  padding-left: 25px;
+  padding-left: 15px;
   border-bottom: 1px solid #ddd;
 }
 .sidenav-items {
-  padding: 12 0px;
+  padding : 10 0px;
   font-size: 13px;
   font-family: sans-serif;
 }
 #sidenav-item-name {
-  padding-left: 30px;
+  padding-left: 12px;
   /* line-height: 40px; */
 }
-.sidenav .material-icons {
+.sidenav-items .material-icons {
   color: #6a6a6a;
 }
 .note-input {

@@ -6,6 +6,8 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
     ["#b388ff", "#f8bbd0", "#d7ccc8", "#cfd8dc"]
   ];
 
+  $scope.myDate = new Date();
+
   $scope.toggleLeft=buildToggler('left');
 
   function buildToggler(componentID) {
@@ -14,12 +16,17 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
       var isOpen = $mdSidenav(componentID).isOpen();
       if(isOpen) {
         document.getElementById('dashboard').style.marginLeft = '280px';
-        // document.getElementsByClassName('notes-others').style.marginLeft = '120px';
-        // document.getElementsByClassName('notes-others').style.marginRight = '120px';
-
+        document.getElementById('createNote1').style.margin = "32 200 20px";
+        document.getElementById('createNote2').style.margin = "32 200 20px";
+        document.getElementById('dashboard-pinned').style.margin = "0px 120px";
+        document.getElementById('dashboard-notes').style.margin = "0px 120px";
       }
       else {
         document.getElementById('dashboard').style.marginLeft = '0px';
+        document.getElementById('createNote1').style.margin = "32 340 20px";
+        document.getElementById('createNote2').style.margin = "32 340 20px";
+        document.getElementById('dashboard-pinned').style.margin = "0px 255px";
+        document.getElementById('dashboard-notes').style.margin = "0px 255px";
       }
     };
   }
@@ -27,11 +34,6 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
   $scope.isVisible = false;
   $scope.showProfile = function() {
     $scope.isVisible = $scope.isVisible ? false : true;
-  }
-
-  $scope.isGrid = true;
-  $scope.listGrid = function () {
-    $scope.isGrid = $scope.isGrid ? false : true;
   }
 
   $scope.createNote = function() {
@@ -107,7 +109,7 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
   }
 
   $scope.reminders = function () {
-
+    
   }
 
   $scope.changeColor = function (color, noteObject) {
@@ -149,10 +151,20 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
     $scope.updateNote(noteObject);
   }
 
+  $scope.isGrid = true;
+  var elements = document.getElementsByClassName("note-card");
   $scope.listView = function() {
     for (i = 0; i < elements.length; i++) {
-      elements[i].style.width = "100%";
+      elements[i].style.width = "600px";
     }
+    $scope.isGrid = $scope.isGrid ? false : true;
+  }
+
+  $scope.gridView = function() {
+    for (i = 0; i < elements.length; i++) {
+      elements[i].style.width = "240px";
+    }
+    $scope.isGrid = $scope.isGrid ? false : true;
   }
 
   $scope.gotoNotes = function() {
