@@ -15,9 +15,9 @@
         <ul class="sidenav-list">
           <div class="sidenav-items" style="padding-left: 15px;" layout="row" layout-align="space-between center">
             Labels
-            <md-button>edit</md-button>
+            <md-button ng-click="showLabels($event)">edit</md-button>
           </div>
-          <li class="sidenav-items">
+          <li class="sidenav-items" ng-click="showLabels($event)">
             <md-button class="md-icon-button"><i class="material-icons">add</i></md-button>
             <span id="sidenav-item-name">Create new label</span>
           </li>

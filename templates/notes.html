@@ -29,13 +29,13 @@
   </div>
 
   <div class="notes-pinned" id="dashboard-pinned" layout="row" layout-wrap style="margin: 0 255px;">
-    <md-card class="note-card" ng-repeat="x in notes | filter: {'pinned' : 'true', archived: 'false'}"
+    <md-card class="note-card" ng-repeat="x in notes | filter: {'pinned' : 'true', archived: 'false', trash: 'false'}"
     style="background-color: {{x.color}};" ng-click="showAlert($event,x)">
     <md-card-title style="padding: 10px 16px 16px;">
       <md-card-title-text>
         <span class="md-headline"><strong>{{x.title}}</strong></span>
       </md-card-title-text>
-      <div style="margin-right: -5px;" ng-click="unpinNote(x)">
+      <div style="margin-right: -5px;" ng-click="unpinNote($event, x)">
         <md-tooltip style="margin-top: -1px;">Unpin note</md-tooltip>
         <img src="assets/images/pinned.svg">
       </div>
@@ -58,7 +58,7 @@
     <md-card-title-text>
       <span class="md-headline"><strong>{{x.title}}</strong></span>
     </md-card-title-text>
-    <div style="margin-right: -5px;" ng-click="pinNote(x)">
+    <div style="margin-right: -5px;" ng-click="pinNote($event, x)">
       <md-tooltip style="margin-top: -1px;">Pin note</md-tooltip>
       <img src="assets/images/pin.svg">
     </div>

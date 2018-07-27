@@ -109,7 +109,7 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
   }
 
   $scope.reminders = function () {
-    
+
   }
 
   $scope.changeColor = function (color, noteObject) {
@@ -121,32 +121,32 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
     }
   }
 
-  $scope.trashNote = function(noteObject) {
+  $scope.trashNote = function(ev, noteObject) {
     noteObject.trash = "true";
     $scope.updateNote(noteObject);
   }
 
-  $scope.restoreNote = function(noteObject) {
+  $scope.restoreNote = function(ev, noteObject) {
     noteObject.trash = "false";
     $scope.updateNote(noteObject);
   }
 
-  $scope.pinNote = function(noteObject) {
+  $scope.pinNote = function(ev, noteObject) {
     noteObject.pinned = "true";
     $scope.updateNote(noteObject);
   }
 
-  $scope.unpinNote = function(noteObject) {
+  $scope.unpinNote = function(ev, noteObject) {
     noteObject.pinned = "false";
     $scope.updateNote(noteObject);
   }
 
-  $scope.archiveNote = function(noteObject) {
+  $scope.archiveNote = function(ev, noteObject) {
     noteObject.archived = "true";
     $scope.updateNote(noteObject);
   }
 
-  $scope.unarchiveNote = function(noteObject) {
+  $scope.unarchiveNote = function(ev, noteObject) {
     noteObject.archived = "false";
     $scope.updateNote(noteObject);
   }
@@ -195,15 +195,32 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
   };
 
   function DialogController($scope, $mdDialog, noteUpdate) {
-    $scope.noteUpdate = noteUpdate;
+    $scope.x = noteUpdate;
+    console.log(noteUpdate);
     $scope.closeDialog = function() {
-      // $scope.noteUpdate.title = $scope.noteUpdate.title;
-      // $scope.noteUpdate.description =$scope.noteUpdate.description;
-      console.log($scope.noteUpdate.title);
-      $scope.updateNote(noteUpdate);
+      console.log($scope.x.title);
+      $scope.updateNote($scope.x);
       $mdDialog.hide();
     }
   }
+
+  $scope.showLabels = function(ev) {
+    $mdDialog.show({
+      controller: labelAlert,
+      templateUrl: 'templates/labelAlert.html',
+      parent: angular.element(document.body),
+      targetEvent: ev,
+      clickOutsideToClose:true
+    });
+  };
+
+  function labelAlert($scope, $mdDialog) {
+    // $scope.labelObject=labelObject;
+    $scope.closeDialog = function() {
+      $mdDialog.hide();
+    }
+  }
+
 
   $scope.getNotes();
 

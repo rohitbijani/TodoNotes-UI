@@ -1,7 +1,7 @@
 <div class="archive">
   <div class="created" layout="row" layout-wrap layout-align="center">
 
-    <md-card class="note-card" ng-repeat="x in notes | filter: {archived : 'true', pinned: 'false'}"
+    <md-card class="note-card" ng-repeat="x in notes | filter: {archived : 'true', trash: 'false'}"
     layout-align="center" style="background-color: {{x.color}};">
     <md-card-title style="padding: 10px 16px 16px;">
       <md-card-title-text>

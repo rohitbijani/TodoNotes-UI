@@ -1,15 +1,15 @@
 <md-dialog style="border-radius: 2px;">
-  <md-card class="dialog-card" style="margin: 0px; background-color: {{noteUpdate.color}}">
+  <md-card class="dialog-card" style="margin: 0px; background-color: {{x.color}}">
     <md-card-title style="padding: 10px 16px 16px;">
       <md-card-title-text>
-        <div class="md-headline" contenteditable ng-model="noteUpdate.title">
-          <strong>{{noteUpdate.title}}</strong>
+        <div class="md-headline" contenteditable ng-model="x.title">
+          <strong>{{x.title}}</strong>
         </div>
       </md-card-title-text>
     </md-card-title>
     <md-card-content>
-      <div class="note-input" contenteditable ng-model="noteUpdate.description">
-        {{noteUpdate.description}}
+      <div class="note-input" contenteditable ng-model="x.description">
+        {{x.description}}
       </div>
     </md-card-content>
     <div layout="row" layout-align="space-between center">

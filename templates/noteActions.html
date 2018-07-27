@@ -6,7 +6,7 @@
     </md-button>
     <md-menu-content>
       <md-menu-item>
-        <md-button style="font-size: 14px;" ng-click="trashNote(x)">Later today</md-button>
+        <md-button style="font-size: 14px;" ng-click="trashNote($event, x)">Later today</md-button>
       </md-menu-item>
       <md-menu-item>
         <md-button style="font-size: 14px;" ng-click="doSomething()">Tomorrow</md-button>
@@ -62,12 +62,12 @@
     <i class="material-icons">image</i>
   </md-button>
 
-  <md-button class="md-icon-button" ng-click="archiveNote(x)" ng-hide="x.archived">
+  <md-button class="md-icon-button" ng-click="archiveNote($event, x)" ng-hide="x.archived">
     <md-tooltip style="margin-top: -1px;">Archive</md-tooltip>
     <i class="material-icons">archive</i>
   </md-button>
 
-  <md-button class="md-icon-button" ng-click="unarchiveNote(x)" ng-show="x.archived">
+  <md-button class="md-icon-button" ng-click="unarchiveNote($event, x)" ng-show="x.archived">
     <md-tooltip style="margin-top: -1px;">Unarchive</md-tooltip>
     <i class="material-icons">unarchive</i>
   </md-button>
@@ -78,7 +78,7 @@
       <i class="material-icons">more_vert</i>
     </md-button>
     <md-menu-content>
-      <md-menu-item><md-button style="font-size: 14px;" ng-click="trashNote(x)">Delete note</md-button></md-menu-item>
+      <md-menu-item><md-button style="font-size: 14px;" ng-click="trashNote($event, x)">Delete note</md-button></md-menu-item>
       <md-menu-item><md-button style="font-size: 14px;" ng-click="doSomething()">Add label</md-button></md-menu-item>
     </md-menu-content>
   </md-menu>

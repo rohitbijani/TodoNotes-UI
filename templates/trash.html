@@ -18,10 +18,10 @@
         </md-button>
         <md-menu-content>
           <md-menu-item>
-            <md-button style="font-size: 14px;" ng-click="deleteNote(x)">Delete forever</md-button>
+            <md-button style="font-size: 14px;" ng-click="deleteNote($event, x)">Delete forever</md-button>
           </md-menu-item>
           <md-menu-item>
-            <md-button style="font-size: 14px;" ng-click="restoreNote(x)">Restore</md-button>
+            <md-button style="font-size: 14px;" ng-click="restoreNote($event, x)">Restore</md-button>
           </md-menu-item>
         </md-menu-content>
       </md-menu>
