@@ -1,4 +1,33 @@
-<md-dialog>
-  <md-card class="dialog-card">
+<md-dialog style=" border-radius: 1px;">
+  <md-card class="label-card" style="margin: 0px; width: 300px;">
+    <!-- <md-card-title>
+      sdhjsdkjl
+    </md-card-title> -->
+    <md-card-content>
+      <div style="font-size: 18px; font-weight: 550; font-family: arial,sans-serif;">
+        Edit labels
+      </div>
+
+      <div class="" layout="row" style="padding: 15 0px;">
+        <div class="md-icon-button" style="margin: 1px;" ng-click="showCreateLabel($event)" ng-show="showLabel">
+          <md-tooltip style="margin-top: -1px;">Cancel</md-tooltip>
+          <i class="material-icons">close</i>
+        </div>
+        <div class="md-icon-button" style="margin: 1px;" ng-click="showCreateLabel($event)" ng-hide="showLabel">
+          <md-tooltip style="margin-top: -1px;">Create label</md-tooltip>
+          <i class="material-icons">add</i>
+        </div>
+        <div style="margin: 0 15px;">
+          <input type="text" style="border: 0px; width: 185; height: 25;" placeholder="Create new label"
+           maxlength="50" ng-model="labelName">
+           {{labelName}}
+        </div>
+        <div class="md-icon-button" style="margin: 1px;" ng-click="showCreateLabel($event);createLabel()" ng-show="showLabel">
+          <md-tooltip style="margin-top: -1px;">Create label</md-tooltip>
+          <i class="material-icons">check</i>
+        </div>
+      </div>
+
+    </md-card-content>
   </md-card>
 </md-dialog>

@@ -39,8 +39,9 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
   $scope.createNote = function() {
     var title=$scope.title;
     var description=$scope.description;
+    console.log("title.. ",title);
 
-    if((title!=null || description!=null) && (title!='' || description!='') && (title!=undefined || description!=undefined)){
+    if((title!=null || description!=null) && (title!=" " || description!=" ") && (title!=undefined || description!=undefined)){
       $scope.note = {
         "title" : title,
         "description" : description
@@ -219,8 +220,34 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
     $scope.closeDialog = function() {
       $mdDialog.hide();
     }
-  }
 
+    $scope.showLabel=true;
+    console.log($scope.showLabel);
+    $scope.showCreateLabel = function (ev) {
+      $scope.showLabel = true ? false : true;
+    }
+
+    $scope.createLabel = function () {
+      var name=$scope.labelName;
+      console.log("name..." +name);
+
+      if(name!=null && name!=undefined) {
+        $scope.label={
+          "name": name
+        }
+        var url = "http://192.168.0.70:8080/notes/create-label";
+        var data = $scope.label;
+
+        httpOperations.postRequest(url,data)
+        .then(function successCallback(response) {
+          console.log(response.data.message);
+        }, function errorCallback(response) {
+          console.log(response.data.message);
+        });
+      }
+    }
+
+  }
 
   $scope.getNotes();
 

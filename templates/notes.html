@@ -3,7 +3,7 @@
   <div class="" ng-show="!showCard">
     <md-card class="createNote-card" id="createNote1">
       <md-card-content ng-click="showCard=true">
-        <div class="note-input" placeholder="Take a note..." contenteditable="true" ng-model="description"></div>
+        <div class="note-input" contenteditable placeholder="Take a note..."></div>
       </md-card-content>
     </md-card>
   </div>
@@ -32,7 +32,7 @@
     <md-card class="note-card" ng-repeat="x in notes | filter: {'pinned' : 'true', archived: 'false', trash: 'false'}"
     style="background-color: {{x.color}};" ng-click="showAlert($event,x)">
     <md-card-title style="padding: 10px 16px 16px;">
-      <md-card-title-text>
+      <md-card-title-text  style="overflow-wrap: break-word;">
         <span class="md-headline"><strong>{{x.title}}</strong></span>
       </md-card-title-text>
       <div style="margin-right: -5px;" ng-click="unpinNote($event, x)">
@@ -40,7 +40,7 @@
         <img src="assets/images/pinned.svg">
       </div>
     </md-card-title>
-    <md-card-content>
+    <md-card-content style="overflow-wrap: break-word;">
       {{x.description}}
     </md-card-content>
     <div class="note-card-actions">
@@ -54,8 +54,8 @@
 
   <md-card class="note-card" ng-repeat="x in notes | filter: {trash: 'false', pinned: 'false', archived: 'false'}"
   style="background-color: {{x.color}};" ng-click="showAlert($event,x)">
-  <md-card-title style="padding: 10px 16px 16px;">
-    <md-card-title-text>
+  <md-card-title style="padding: 10px 16px 16px; overflow-wrap: break-word;">
+    <md-card-title-text layout-wrap>
       <span class="md-headline"><strong>{{x.title}}</strong></span>
     </md-card-title-text>
     <div style="margin-right: -5px;" ng-click="pinNote($event, x)">
@@ -63,7 +63,7 @@
       <img src="assets/images/pin.svg">
     </div>
   </md-card-title>
-  <md-card-content>
+  <md-card-content  style="overflow-wrap: break-word;">
     {{x.description}}
   </md-card-content>
   <div class="note-card-actions">
