@@ -41,10 +41,11 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
     var description=$scope.description;
     console.log("title.. ",title);
 
-    if((title!=null || description!=null) && (title!=" " || description!=" ") && (title!=undefined || description!=undefined)){
+    if((title!=null || description!=null) && (title!="" || description!="") && (title!=undefined || description!=undefined)){
       $scope.note = {
         "title" : title,
-        "description" : description
+        "description" : description,
+        "color" : $scope.bgcolor
       };
       var url = "http://192.168.0.70:8080/notes/create-note";
       var data = $scope.note;
@@ -72,8 +73,9 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
     });
   }
 
-  $scope.deleteNote = function(noteObject) {
+  $scope.deleteNote = function(ev, noteObject) {
     var url = "http://192.168.0.70:8080/notes/delete-note/"+noteObject.id;
+    console.log(noteObject.id);
 
     httpOperations.deleteRequest(url)
     .then(function successCallback(response) {
@@ -240,6 +242,7 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
 
         httpOperations.postRequest(url,data)
         .then(function successCallback(response) {
+          $scope.getLabels();
           console.log(response.data.message);
         }, function errorCallback(response) {
           console.log(response.data.message);
@@ -247,6 +250,49 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
       }
     }
 
+    $scope.getLabels = function () {
+      $scope.labels=[];
+      var url = "http://192.168.0.70:8080/notes/view-labels";
+
+      httpOperations.getRequest(url)
+      .then(function successCallback(response) {
+        $scope.labels = response.data;
+        console.log($scope.labels);
+      }, function errorCallback(response) {
+        console.log(response.data.message);
+      });
+    }
+
+    $scope.deleteLabel = function(labelObject) {
+      var url = "http://192.168.0.70:8080/notes/delete-label/"+labelObject.id;
+
+      httpOperations.deleteRequest(url)
+      .then(function successCallback(response) {
+        $scope.getLabels();
+      }, function errorCallback(response) {
+        console.log(response.data.message);
+      });
+    }
+
+    $scope.updateLabel = function(labelObject) {
+      var url = "http://192.168.0.70:8080/notes/update-label";
+      $scope.label = {
+        "id" : labelObject.id,
+        "name" : labelObject.name
+      };
+
+      console.log($scope.label.name);
+
+      httpOperations.putRequest(url,$scope.label)
+      .then(function successCallback(response) {
+        $scope.getLabels();
+        console.log(response);
+      }, function errorCallback(response) {
+        console.log(response.data.message);
+      });
+    }
+
+    $scope.getLabels();
   }
 
   $scope.getNotes();

@@ -15,19 +15,22 @@
         <md-button style="font-size: 14px;" ng-click="doSomething()">Next week</md-button>
       </md-menu-item>
       <md-menu-item>
-        <md-menu>
-          <div style="font-size: 14px;" ng-click="$mdMenu.open($event)">Pick date & time</div>
-          <md-menu-content style="padding: 5px; width: 220;">
+        <md-menu md-prevent-menu-close="md-prevent-menu-close">
+          <div style="font-size: 14px;" ng-click="$mdMenu.open($event)">
+            <md-icon><i class="material-icons" style="font-size:16px; margin-top: 2px;">access_time</i></md-icon>
+            Pick date & time</div>
+          <md-menu-content style="padding: 15px; width: 220;">
             <!-- <md-menu-item>Pick date & time</md-menu-item> -->
             <md-menu-item>
-              <md-datepicker style="padding: 0px;" ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+              <!-- <md-datepicker style="padding: 0px;" ng-model="myDate" md-placeholder="Enter date"></md-datepicker> -->
+              <input type="date" style="border: 0px; border-bottom: 1px solid #0003;" placeholder="myDate" ng-model="dateReminder">
             </md-menu-item>
             <md-menu-item>
-              <center><input type="time" id="timeInput" name="time" placeholder="HH:mm:ss" style="border: none;" ng-model="timeReminder">
-              </center>
+              <input type="time" id="timeInput" name="time" placeholder="HH:mm:ss"
+                style="border: none; border-bottom: 1px solid #0003;" ng-model="timeReminder">
             </md-menu-item>
             <div layout="row" layout-align="end">
-              <md-button ng-click="reminders()">save</md-button>
+              <md-button style="font-size:13px; margin:0px;" ng-click="reminders()">save</md-button>
             </div>
           </md-menu-content>
       </md-menu>

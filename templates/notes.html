@@ -3,7 +3,7 @@
   <div class="" ng-show="!showCard">
     <md-card class="createNote-card" id="createNote1">
       <md-card-content ng-click="showCard=true">
-        <div class="note-input" contenteditable placeholder="Take a note..."></div>
+        <div class="note-input" contenteditable only-text="true" convert-new-lines="true" placeholder="Take a note..."></div>
       </md-card-content>
     </md-card>
   </div>
@@ -11,9 +11,10 @@
   <div class="" ng-show="showCard">
     <md-card class="createNote-card" id="createNote2" style="background-color: {{bgcolor}}">
       <md-card-content>
-        <div class="note-input" contenteditable placeholder="Title" ng-model="title"></div>
+        <div class="note-input" contenteditable only-text="true" convert-new-lines="true" placeholder="Title" ng-model="title"></div>
         <span style="display :block;"></span>
-        <div class="note-input" contenteditable placeholder="Take a note..." ng-model="description"></div>
+        <div class="note-input" contenteditable ng-minlength=1 only-text="true"
+         convert-new-lines="true" placeholder="Take a note..." ng-model="description"></div>
       </md-card-content>
       <div layout="row" layout-align="space-between center">
         <noteactions></noteactions>

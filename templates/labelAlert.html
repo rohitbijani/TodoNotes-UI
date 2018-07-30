@@ -1,33 +1,63 @@
 <md-dialog style=" border-radius: 1px;">
   <md-card class="label-card" style="margin: 0px; width: 300px;">
     <!-- <md-card-title>
-      sdhjsdkjl
-    </md-card-title> -->
-    <md-card-content>
-      <div style="font-size: 18px; font-weight: 550; font-family: arial,sans-serif;">
-        Edit labels
-      </div>
+    sdhjsdkjl
+  </md-card-title> -->
+  <md-card-content>
+    <div style="font-size: 18px; font-weight: 550; font-family: arial,sans-serif;">
+      Edit labels
+    </div>
 
-      <div class="" layout="row" style="padding: 15 0px;">
-        <div class="md-icon-button" style="margin: 1px;" ng-click="showCreateLabel($event)" ng-show="showLabel">
-          <md-tooltip style="margin-top: -1px;">Cancel</md-tooltip>
-          <i class="material-icons">close</i>
-        </div>
-        <div class="md-icon-button" style="margin: 1px;" ng-click="showCreateLabel($event)" ng-hide="showLabel">
-          <md-tooltip style="margin-top: -1px;">Create label</md-tooltip>
-          <i class="material-icons">add</i>
-        </div>
-        <div style="margin: 0 15px;">
-          <input type="text" style="border: 0px; width: 185; height: 25;" placeholder="Create new label"
-           maxlength="50" ng-model="labelName">
-           {{labelName}}
-        </div>
-        <div class="md-icon-button" style="margin: 1px;" ng-click="showCreateLabel($event);createLabel()" ng-show="showLabel">
-          <md-tooltip style="margin-top: -1px;">Create label</md-tooltip>
+    <div class="" layout="row" style="padding: 15 0px;">
+      <md-icon style="margin: 1px;" ng-click="showCreateLabel($event)" ng-show="showLabel">
+        <md-tooltip style="margin-top: -1px;">Cancel</md-tooltip>
+        <i class="material-icons">close</i>
+      </md-icon>
+      <md-icon style="margin: 1px;" ng-click="showCreateLabel($event)" ng-hide="showLabel">
+        <md-tooltip style="margin-top: -1px;">Create label</md-tooltip>
+        <i class="material-icons">add</i>
+      </md-icon>
+      <div style="margin: 0 15px;">
+        <input type="text" style="font-weight: 550;font-size: 14px; border: 0px; width: 185; height: 25;"
+        placeholder="Create new label" maxlength="50" ng-model="labelName">
+      </div>
+      <md-icon style="margin: 1px;" ng-click="showCreateLabel($event);createLabel()" ng-show="showLabel">
+        <md-tooltip style="margin-top: -1px;">Create label</md-tooltip>
+        <i class="material-icons">check</i>
+      </md-icon>
+    </div>
+
+    <div class="layout-row" style="padding: 15 0px;" ng-repeat="l in labels">
+      <md-icon style="margin: 1px; font-size:" ng-click="deleteLabel(l)" ng-show="showLabel">
+        <md-tooltip style="margin-top: -1px;">Delete label</md-tooltip>
+        <i class="material-icons">delete</i>
+      </md-icon>
+      <span style="margin: 0 15px;">
+        <input type="text" style="font-weight: 550; font-size: 14px; border: 0px; width: 185; height: 25;" maxlength="50"
+        ng-model="l.name">
+      </span>
+      <!-- <span>
+        <md-icon style="margin: 1px;" ng-click="showEditLabel($event)" ng-show="editLabel">
+          <md-tooltip style="margin-top: -1px;">Rename label</md-tooltip>
+          <i class="material-icons">edit</i>
+        </md-icon>
+      </span> -->
+      <span>
+
+        <md-icon style="margin: 1px;" ng-click="updateLabel(l)" ng-show="showLabel">
+          <md-tooltip style="margin-top: -1px;">Rename label</md-tooltip>
           <i class="material-icons">check</i>
-        </div>
-      </div>
+        </md-icon>
+      </span>
+    </div>
 
-    </md-card-content>
-  </md-card>
+  </md-card-content>
+
+  <div class="layout-align-end-center layout-row" style="border-top: 1px solid #00000014;">
+    <md-button style="font-size:13px;" ng-click="closeDialog()">
+      <strong>done</strong>
+    </md-button>
+  </div>
+
+</md-card>
 </md-dialog>

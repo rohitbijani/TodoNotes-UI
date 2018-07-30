@@ -17,6 +17,10 @@
             Labels
             <md-button style="font-size: 13px;" ng-click="showLabels($event)"><strong>edit</strong></md-button>
           </div>
+          <li class="sidenav-items" ng-repeat="l in labels" ng-click="">
+            <md-button class="md-icon-button"><i class="material-icons">label</i></md-button>
+            <span id="sidenav-item-name">{{l.name}}</span>
+          </li>
           <li class="sidenav-items" ng-click="showLabels($event)">
             <md-button class="md-icon-button"><i class="material-icons">add</i></md-button>
             <span id="sidenav-item-name">Create new label</span>
