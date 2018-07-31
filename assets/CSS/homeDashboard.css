@@ -34,7 +34,7 @@ md-sidenav {
   border-bottom: 1px solid #ddd;
 }
 .sidenav-items {
-  padding : 10 0px;
+  padding : 7 0px;
   font-size: 13px;
   font-family: sans-serif;
 }
@@ -81,4 +81,7 @@ md-sidenav {
   border-color: #00000029;
   width: 27px;
   height: 27px;
+}
+md-checkbox.md-checked.green .md-icon {
+ background-color: #757575;
 }

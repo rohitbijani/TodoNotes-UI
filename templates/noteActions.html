@@ -23,7 +23,7 @@
             <!-- <md-menu-item>Pick date & time</md-menu-item> -->
             <md-menu-item>
               <!-- <md-datepicker style="padding: 0px;" ng-model="myDate" md-placeholder="Enter date"></md-datepicker> -->
-              <input type="date" style="border: 0px; border-bottom: 1px solid #0003;" placeholder="myDate" ng-model="dateReminder">
+              <input type="date" min="{{today}}" style="border: 0px; border-bottom: 1px solid #0003;" placeholder="myDate" ng-model="dateReminder">
             </md-menu-item>
             <md-menu-item>
               <input type="time" id="timeInput" name="time" placeholder="HH:mm:ss"
@@ -82,7 +82,19 @@
     </md-button>
     <md-menu-content>
       <md-menu-item><md-button style="font-size: 14px;" ng-click="trashNote($event, x)">Delete note</md-button></md-menu-item>
-      <md-menu-item><md-button style="font-size: 14px;" ng-click="doSomething()">Add label</md-button></md-menu-item>
+      <md-menu-item>
+        <md-menu>
+          <md-button style="font-size: 14px;" ng-click="$mdOpenMenu($event);labelList(x)">Add label</md-button>
+          <md-menu-content>
+            <div class="" style="width: 200px; padding: 5px 10px 3px; font-size: 14px;" ng-repeat="l in labels">
+              <md-checkbox class="green" md-prevent-menu-close="md-prevent-menu-close"
+               ng-checked="exists(l, selected)" ng-click="applyLabel(l, x, selected)">
+                {{l.name}}
+            </md-checkbox>
+            </div>
+          </md-menu-content>
+        </md-menu>
+      </md-menu-item>
     </md-menu-content>
   </md-menu>
 </div>
