@@ -6,6 +6,7 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
     ["#b388ff", "#f8bbd0", "#d7ccc8", "#cfd8dc"]
   ];
 
+  $scope.selected = [];
   $scope.today = new Date().toISOString().split('T')[0];
 
   $scope.toggleLeft=buildToggler('left');
@@ -35,61 +36,6 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
   $scope.showProfile = function() {
     $scope.isVisible = $scope.isVisible ? false : true;
   }
-
-  $scope.selected = [];
-
-  $scope.labelList = function (noteObject) {
-    if (noteObject.labels.size>0) {
-      $scope.selected = noteObject.labels;
-
-    }
-  }
-
-  $scope.applyLabel = function (item, noteObject, list) {
-    $scope.labelNote={
-      "labelId" : item.id,
-      "noteId" : noteObject.id
-    }
-    var idx = list.indexOf(item);
-    if (idx > -1) {
-      list.splice(idx, 1);
-      $scope.removeLabel($scope.labelNote);
-    }
-    else {
-      list.push(item);
-      $scope.addLabel($scope.labelNote);
-    }
-  };
-
-  $scope.addLabel = function (labelNote) {
-    var url = "http://192.168.0.70:8080/notes/add-label";
-    var data = labelNote;
-
-    httpOperations.postRequest(url,data)
-    .then(function successCallback(response) {
-      $scope.getNotes();
-      console.log(response.data.message);
-    }, function errorCallback(response) {
-      console.log(response.data.message);
-    });
-  };
-
-  $scope.removeLabel = function (labelNote) {
-    var url = "http://192.168.0.70:8080/notes/remove-label";
-    var data = labelNote;
-
-    httpOperations.postRequest(url,data)
-    .then(function successCallback(response) {
-      $scope.getNotes();
-      console.log(response.data.message);
-    }, function errorCallback(response) {
-      console.log(response.data.message);
-    });
-  };
-
-  $scope.exists = function (item, list) {
-    return list.indexOf(item) > -1;
-  };
 
   $scope.createNote = function() {
     var title=$scope.title;
@@ -253,6 +199,63 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
       console.log(response.data.message);
     });
   }
+
+  $scope.labelList = function (noteObject) {
+    var labelArray = noteObject.labels;
+    // if (labelArray.length > 0) {
+    labelArray.forEach(function(element) {
+      $scope.selected.push(element.name);
+    });
+    console.log("label list.. ",$scope.selected);
+    // }
+  }
+
+  $scope.applyLabel = function (item, noteObject, list) {
+    $scope.labelNote={
+      "labelId" : item.id,
+      "noteId" : noteObject.id
+    }
+    var idx = list.indexOf(item.name);
+    if (idx > -1) {
+      // list.splice(idx, 1);
+      $scope.removeLabel($scope.labelNote);
+    }
+    else {
+      // list.push(item);
+      $scope.addLabel($scope.labelNote);
+    }
+  };
+
+  $scope.addLabel = function (labelNote) {
+    var url = "http://192.168.0.70:8080/notes/add-label";
+    var data = labelNote;
+
+    httpOperations.postRequest(url,data)
+    .then(function successCallback(response) {
+      $scope.getNotes();
+      console.log(response.data.message);
+    }, function errorCallback(response) {
+      console.log(response.data.message);
+    });
+  };
+
+  $scope.removeLabel = function (labelNote) {
+    var url = "http://192.168.0.70:8080/notes/remove-label";
+    var data = labelNote;
+
+    httpOperations.postRequest(url,data)
+    .then(function successCallback(response) {
+      $scope.getNotes();
+      console.log(response.data.message);
+    }, function errorCallback(response) {
+      console.log(response.data.message);
+    });
+  };
+
+  $scope.exists = function (item, list) {
+    // console.log(list.indexOf(item) > -1);
+    return list.indexOf(item) > -1;
+  };
 
   $scope.showAlert = function(ev,noteObject) {
     $mdDialog.show({

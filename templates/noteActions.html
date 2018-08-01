@@ -76,7 +76,7 @@
   </md-button>
 
   <md-menu>
-    <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)">
+    <md-button class="md-icon-button" ng-click="$mdMenu.open($event);labelList(x)">
       <md-tooltip style="margin-top: -1px;">More</md-tooltip>
       <i class="material-icons">more_vert</i>
     </md-button>
@@ -84,11 +84,11 @@
       <md-menu-item><md-button style="font-size: 14px;" ng-click="trashNote($event, x)">Delete note</md-button></md-menu-item>
       <md-menu-item>
         <md-menu>
-          <md-button style="font-size: 14px;" ng-click="$mdOpenMenu($event);labelList(x)">Add label</md-button>
+          <md-button style="font-size: 14px;" ng-click="$mdOpenMenu($event)">Add label</md-button>
           <md-menu-content>
             <div class="" style="width: 200px; padding: 5px 10px 3px; font-size: 14px;" ng-repeat="l in labels">
               <md-checkbox class="green" md-prevent-menu-close="md-prevent-menu-close"
-               ng-checked="exists(l, selected)" ng-click="applyLabel(l, x, selected)">
+               ng-checked="exists(l.name, selected)" ng-click="applyLabel(l, x, selected)">
                 {{l.name}}
             </md-checkbox>
             </div>

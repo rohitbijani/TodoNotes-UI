@@ -54,8 +54,9 @@ md-sidenav {
 }
 
 [placeholder]:empty:focus::before {
-    content: "";
+    /* content: ""; */
 }
+
 .note-card {
   width: 240px;
 }
@@ -84,4 +85,8 @@ md-sidenav {
 }
 md-checkbox.md-checked.green .md-icon {
  background-color: #757575;
+}
+.md-chips md-chip {
+  background-color: #00000014;
+  border-radius: 2px;
 }
