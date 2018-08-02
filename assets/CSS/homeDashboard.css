@@ -49,12 +49,12 @@ md-sidenav {
   border: none;
 }
 .note-input[placeholder]:empty::before {
-    content: attr(placeholder);
-    color: #555;
+  content: attr(placeholder);
+  color: #555;
 }
 
 [placeholder]:empty:focus::before {
-    /* content: ""; */
+  /* content: ""; */
 }
 
 .note-card {
@@ -69,6 +69,7 @@ md-sidenav {
 }
 .note-card-actions {
   margin: 4 0px;
+  min-height: 36px;
 }
 .note-card-actions noteactions .md-icon-button {
   margin: 0px;
@@ -84,9 +85,15 @@ md-sidenav {
   height: 27px;
 }
 md-checkbox.md-checked.green .md-icon {
- background-color: #757575;
+  background-color: #757575;
 }
 .md-chips md-chip {
   background-color: #00000014;
   border-radius: 2px;
+}
+md-chips.md-default-theme .md-chips, md-chips .md-chips {
+  box-shadow: 0 0px;
+}
+md-chip md-icon {
+  min-width: 0px;
 }

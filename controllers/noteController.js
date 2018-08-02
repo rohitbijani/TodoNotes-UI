@@ -37,6 +37,14 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
     $scope.isVisible = $scope.isVisible ? false : true;
   }
 
+  $scope.open = false;
+  $scope.mouseover = function () {
+    $scope.open = true;
+  }
+  $scope.mouseleave = function () {
+    $scope.open = false;
+  }
+
   $scope.createNote = function() {
     var title=$scope.title;
     var description=$scope.description;
@@ -219,10 +227,12 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
     if (idx > -1) {
       // list.splice(idx, 1);
       $scope.removeLabel($scope.labelNote);
+      $scope.getLabels();
     }
     else {
       // list.push(item);
       $scope.addLabel($scope.labelNote);
+      $scope.getLabels();
     }
   };
 
@@ -250,6 +260,14 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
     }, function errorCallback(response) {
       console.log(response.data.message);
     });
+  };
+
+  $scope.removeNoteLabel = function (labelObject, noteObject, ev) {
+    var removeObject = {
+      "labelId" : labelObject.id,
+      "noteId" : noteObject.id
+    }
+    $scope.removeLabel(removeObject);
   };
 
   $scope.exists = function (item, list) {
