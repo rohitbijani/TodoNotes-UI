@@ -187,6 +187,11 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
     $state.go('home.reminders');
   }
 
+  $scope.gotoLabel = function (labelObject) {
+    $scope.getLabelNotes(labelObject);
+    $state.go('home.label');
+  }
+
   $scope.gotoArchive = function() {
     $state.go('home.archive');
   }
@@ -274,6 +279,21 @@ myApp.controller('noteController', function($scope,$state,$mdSidenav,httpOperati
     // console.log(list.indexOf(item) > -1);
     return list.indexOf(item) > -1;
   };
+
+  $scope.labelNotes=[];
+  $scope.getLabelNotes = function (labelObject) {
+    var url = "http://192.168.0.70:8080/notes/view-labelnotes";
+    var data = labelObject;
+
+    httpOperations.postRequest(url,data)
+    .then(function successCallback(response) {
+      // $scope.getLabelNotes();
+      console.log(response.data.message);
+    }, function errorCallback(response) {
+      console.log(response.data.message);
+    });
+
+  }
 
   $scope.showAlert = function(ev,noteObject) {
     $mdDialog.show({

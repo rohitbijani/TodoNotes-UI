@@ -33,6 +33,12 @@ myApp.config(function($stateProvider,$urlRouterProvider){
     controller: 'noteController'
   })
 
+  .state('home.label', {
+    url: '/label',
+    templateUrl: 'templates/label.html',
+    controller: 'noteController'
+  })
+
   .state('home.reminders', {
     url: '/reminders',
     templateUrl: 'templates/reminders.html',

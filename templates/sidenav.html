@@ -19,7 +19,7 @@
               <strong>edit</strong>
             </md-button>
           </div>
-          <li class="sidenav-items" ng-repeat="l in labels" ng-click="">
+          <li class="sidenav-items" ng-repeat="l in labels" ng-click="gotoLabel(l)">
             <md-button class="md-icon-button"><i class="material-icons">label</i></md-button>
             <span id="sidenav-item-name">{{l.name}}</span>
           </li>

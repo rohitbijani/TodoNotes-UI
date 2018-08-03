@@ -20,7 +20,7 @@
   width: 300px;
   margin-top: 65px;
   margin-left: 1000px;
-  position: absolute;
+  position: fixed;
 }
 md-sidenav {
   background-color: #e8e8e8;
